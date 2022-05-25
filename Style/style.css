@@ -1,0 +1,40 @@
+ body{
+     width: 100vh;
+     height: 100vh;
+ }
+ tr,td{
+    border: 2px solid black;
+    background-color:crimson;
+    color: white;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-self: center;
+}
+
+table{
+    margin: auto;
+
+    border: 2px dashed black;
+    background-color: rgb(21, 255, 0);
+    background-clip: content-box;
+}
+a{
+    color: rgb(5, 4, 4);
+    width: 150px;
+}
+
+
+.tabela{
+    visibility: hidden;
+    display: block;
+    position: absolute ;
+    text-align:inherit;
+}
+.tabelagerada{
+    margin: 5px;
+    position: relative;
+    
+
+}

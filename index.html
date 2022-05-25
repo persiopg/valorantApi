@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/Style/style.css">
+    <title>Valorant api</title>
 </head>
 <body>
     <div>
         <nav class="menu">
             <ul>
-                <li><button onclick="carregaMaps()">mapas</button></li>
-                <li><button onclick="carregaChar()">personagens</button></li>
+                <li><a onclick="carregaMaps()">mapas</a></li>
+                <li><a onclick="carregaChar()">personagens</a></li>
             </ul>
         </nav>
     </div>
-    <table id="tabela"></table>
-    <script src="main.js"></script>
+    <div class="display"></div>
+        <table id="tabelamaps" class="tabela"></table>
+        <table id="tabelachar" class="tabela"></table>
+        <script src="main.js"></script>
 </body>
 </html>
