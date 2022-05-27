@@ -1,4 +1,4 @@
-let data = fazGet("https://br.api.riotgames.com/val/content/v1/contents?api_key=RGAPI-39f88746-af19-45d5-ba01-e65a57a42825");
+let data = fazGet("https://br.api.riotgames.com/val/content/v1/contents?api_key=RGAPI-3e314484-98db-4bff-8722-1f3b6ccf2c5b");
 var usuario = JSON.parse(data);
 const localizedNamesSuport = [
     "ar-AE",
@@ -22,7 +22,7 @@ const localizedNamesSuport = [
 ]
 
 function fazGet(url){
-    let req = new XMLHttpRequest();
+   let req = new XMLHttpRequest();
     req.open("GEt", url, false);
     req.send();
     return req.responseText;
@@ -49,31 +49,25 @@ function criaLinha(api){
     let linha = document.createElement("tr");
     let tdName = document.createElement("td");
     let tdLInhaLocalized = document.createElement("td");
-    let t=0;
 
-    if(api.name == "Null UI Data!"){
-        return linha;
-    }else{
+    tdName.innerHTML = `<a href="${api.name}"> Name: ${api.name} </a>`;
+    tdLInhaLocalized.innerHTML = `<table id="${api.assetName}" class="tabelagerada">`;
 
-        tdName.innerHTML = `<a href="${api.name}"> Name: ${api.name} </a>`;
-        linha.appendChild(tdName);
-        tdLInhaLocalized.innerHTML = `<table id="${api.assetName}" class="tabelagerada">`;
-        linha.appendChild(tdLInhaLocalized);        
-        return linha;
-    }
+    linha.appendChild(tdName);
+    linha.appendChild(tdLInhaLocalized);        
+
+    return linha;
 }
-function GerarLocalizedNames(api){
-    
+
+function GerarLocalizedNames(api){    
     Array.from(api).forEach(element => {
-            if(element.name == "Null UI Data!"){}
-            else{
+        if(element.name == "Null UI Data!"){}
+        else{
             let id = element.assetName
             let tabela = document.getElementById(`${id}`);
             let t=0
-            while(t<localizedNamesSuport.length){
-                
+            while(t<localizedNamesSuport.length){                
                 let linha = criaTabelaLocalized(element.localizedNames[localizedNamesSuport[t]],t);
-                
                 tabela.appendChild(linha); 
                 t++
             }
@@ -93,13 +87,14 @@ function criaTabelaLocalized(api,x){
     linha.appendChild(tdLInhaLocalized);
 
     return linha;
-
-
 }
 function gerarTabela(api, tabela){
     Array.from(api).forEach(element => {
-        let linha = criaLinha(element);
-        tabela.appendChild(linha);        
+        if(element.name == "Null UI Data!"){}
+        else{
+            let linha = criaLinha(element);
+            tabela.appendChild(linha);      
+        }
     });
     GerarLocalizedNames(api)
 }
